@@ -14,20 +14,22 @@ spring:
 spring:
   profiles: local
   datasource:
-    driver-class-name: org.h2.Driver
     sql-script-encoding: UTF-8
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost/~/oss
     username: sa
     password:
     platform: h2
   jpa:
-    open-in-view: false
-    generate-ddl: true
+#    open-in-view: false
+#    generate-ddl: true
     hibernate:
-      ddl-auto: create-drop
-      show-sql: true
-      format_sql: true
-      use_sql_comments: true
+      ddl-auto: create
+    properties:
+      hibernate:
+#        show_sql: true
+        format_sql: true
+#        use_sql_comments: true
   h2:
     console:
       enabled: true
@@ -40,3 +42,4 @@ logging:
   level:
     root: info
     org.hibernate.SQL: debug
+#    org.hibernate.type: trace
