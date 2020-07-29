@@ -16,24 +16,29 @@ spring:
   datasource:
     sql-script-encoding: UTF-8
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:tcp://localhost/~/oss
+    url: jdbc:h2:tcp://localhost/~/oss # jdbc:h2:mem:oss;DB_CLOSE_DELAY=-1
     username: sa
     password:
     platform: h2
-  jpa:
-#    open-in-view: false
-#    generate-ddl: true
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-#        show_sql: true
-        format_sql: true
-#        use_sql_comments: true
+
   h2:
     console:
       enabled: true
       path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: create # 이 옵션은 애플리케이션 실행 시점에 테이블을 drop 하고, 다시 생성한다
+    properties:
+      hibernate:
+        format_sql: true
+
+  devtools:
+    livereload:
+      enabled: true   # 이 옵션은 정적 파일 변동 시 자동 반영될 수 있도록 돕는다.
+    restart:
+      enabled: true
+
 
 server:
   port: 9090

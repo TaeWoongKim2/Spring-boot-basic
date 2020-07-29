@@ -24,8 +24,7 @@ public class MemberRepositoryTest {
     public void testMember() throws Exception {
 
         // given
-        Member member = new Member();
-        member.setName("EHOTO");
+        Member member = Member.builder().name("EHOTO").build();
 
         // when
         Long saveId = memberRepository.save(member);

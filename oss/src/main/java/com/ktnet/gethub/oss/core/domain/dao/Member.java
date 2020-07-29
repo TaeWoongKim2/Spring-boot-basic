@@ -1,8 +1,7 @@
 package com.ktnet.gethub.oss.core.domain.dao;
 
-import lombok.Generated;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -23,5 +22,10 @@ public class Member {
 
     @OneToMany(mappedBy = "member") // 읽기 전용이 된다. 값을 변경된다고 변경되지 않음.
     private List<Order> orders = new ArrayList<>();
+
+    @Builder
+    public Member(String name) {
+        this.name = name;
+    }
 
 }

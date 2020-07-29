@@ -1,6 +1,7 @@
 package com.ktnet.gethub.oss.core.domain.dao;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -23,10 +24,13 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
+    @OneToOne
     private Delivery delivery;
 
     private LocalDateTime orderDateTime; // Java 8 부터 Hibernate 가 알아서 지원해 줌
 
+    @Enumerated(EnumType.STRING)
     private OrderStatus status; // 주문상태 ( ORDER , CANCLE )
+
 }
 
