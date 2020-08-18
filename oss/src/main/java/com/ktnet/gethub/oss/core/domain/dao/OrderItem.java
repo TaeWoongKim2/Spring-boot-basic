@@ -4,22 +4,23 @@ package com.ktnet.gethub.oss.core.domain.dao;
 import com.ktnet.gethub.oss.core.domain.dao.item.Item;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Getter
+@Getter @Setter
 public class OrderItem {
 
     @Id @GeneratedValue
     @Column(name = "order_item_id")
     private long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order;
 
