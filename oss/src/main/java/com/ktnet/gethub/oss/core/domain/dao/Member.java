@@ -2,6 +2,7 @@ package com.ktnet.gethub.oss.core.domain.dao;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
