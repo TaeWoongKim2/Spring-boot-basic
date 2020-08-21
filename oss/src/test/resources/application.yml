@@ -1,0 +1,42 @@
+application:
+ version: 0.0.1
+ title: oss
+
+server:
+  servlet:
+    context-path: /oss
+
+spring:
+  profiles:
+    active: local
+
+--- # local
+spring:
+  profiles: local
+  datasource:
+    sql-script-encoding: UTF-8
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop # 이 옵션은 애플리케이션 종료 시점에 모든 테이블을 drop 하고 종료한다 !!!
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    root: info
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+
+# !!! 스프링 부트는 위 설정값이 없어도 기본적으로 정해진 인메모리 테스트 설정으로 자동으로 돌려버린다 !!!
+# !!! 테스트 DB와 운영 DB는 분리하는게 여러가지로 좋다 !!!
