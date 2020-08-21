@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Repository 클래스로 위임만 하는 역할이 서비스라고 생각하면 된다!
+ */
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -30,6 +33,3 @@ public class ItemService {
     }
 
 }
-/**
- * Repository 클래스로 위임만 하는 역할이 서비스라고 생각하면 된다!
- */
