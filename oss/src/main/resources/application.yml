@@ -16,7 +16,7 @@ spring:
   datasource:
     sql-script-encoding: UTF-8
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:tcp://localhost/~/oss # jdbc:h2:mem:oss;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:tcp://localhost/~/oss
     username: sa
     password:
     platform: h2
