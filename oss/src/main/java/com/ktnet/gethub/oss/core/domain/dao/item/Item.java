@@ -4,6 +4,7 @@ import com.ktnet.gethub.oss.core.domain.dao.Category;
 import com.ktnet.gethub.oss.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE) // 상속관계 매핑
 @DiscriminatorColumn(name = "dtype")
-@Getter
+@Getter @Setter
 @NoArgsConstructor
 public abstract class Item {
 

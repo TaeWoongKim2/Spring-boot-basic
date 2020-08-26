@@ -2,6 +2,7 @@ package com.ktnet.gethub.oss.core.domain.dao;
 
 
 import com.ktnet.gethub.oss.core.domain.dao.item.Item;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // 이와 같이 잡아주면 누군가의 new() 연산자를 통한 객체 생성을 막을 수 있다.
 public class OrderItem {
 
     @Id @GeneratedValue
@@ -46,7 +48,7 @@ public class OrderItem {
     //==조회 로직==//
 
     /**
-     * 주문 상품 전체 가격 조회 
+     * 주문 상품 전체 가격 조회
      */
     public int getTotalPrice() {
         return getOrderPrice() * getCount();

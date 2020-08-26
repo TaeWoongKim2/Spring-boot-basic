@@ -1,5 +1,6 @@
 package com.ktnet.gethub.oss.core.domain.dao;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "orders")
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // 이와 같이 잡아주면 누군가의 new() 연산자를 통한 객체 생성을 막을 수 있다.
 public class Order {
 
     @Id @GeneratedValue
