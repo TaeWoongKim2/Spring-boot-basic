@@ -16,7 +16,7 @@ spring:
   datasource:
     sql-script-encoding: UTF-8
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:test
+    url: jdbc:h2:~/test
     username: sa
     password:
 
@@ -27,7 +27,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create-drop # 이 옵션은 애플리케이션 종료 시점에 모든 테이블을 drop 하고 종료한다 !!!
+      ddl-auto: create # 이 옵션은 애플리케이션 종료 시점에 모든 테이블을 drop 하고 종료한다 !!!
     properties:
       hibernate:
         format_sql: true
